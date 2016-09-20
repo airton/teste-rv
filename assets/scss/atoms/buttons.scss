@@ -1,0 +1,371 @@
+/*  ==========================================================================
+    Buttons
+    ========================================================================== */
+
+    /*
+     * CSS for all devices
+     */
+
+    @media only screen {
+
+        /*  Default
+            ========================================================================== */
+            .btn {
+                display: inline-block;
+                margin-bottom: 0;
+                text-align: center;
+                vertical-align: middle;
+                cursor: pointer;
+                background-image: none;
+                border: 1px solid transparent;
+                white-space: nowrap;
+                font-size: 14px;
+                color: #fff;
+                font-weight: 700;
+                padding: 8px 15px;
+                position: relative;
+                overflow: hidden;
+                outline: none;
+                @include transition(background 0.25s ease);
+                @include border-radius(4px);
+            }
+
+            .btn:hover,
+            .btn:focus { text-decoration: none; }
+
+        /*  Colors
+            ========================================================================== */
+
+            /*  Default
+                ========================================================================== */
+                .btn {
+                    background-color: $color-gray;
+
+                    /* w/ Border */
+                    &.btn-border{
+                        border-color: $color-gray;
+                        color: $color-gray;
+                    }
+
+                    /* Single */
+                    &.btn-single{
+                        color: $color-gray;
+                    }
+                }
+
+                .btn:hover,
+                .btn:focus { background-color: darken($color-gray, 5%); }
+
+            /*  Primary
+                ========================================================================== */
+                .btn-primary {
+                    background-color: $color-primary;
+
+                    /* w/ Border and Round */
+                    &.btn-border,
+                    &.btn-round{
+                        border-color: $color-primary;
+                        color: $color-primary;
+                    }
+
+                    /* Single */
+                    &.btn-single{
+                        color: $color-primary;
+                    }
+                }
+
+                .btn-primary:hover,
+                .btn-primary:focus { background-color: darken($color-primary, 5%); }
+
+            /*  Secondary
+                ========================================================================== */
+                .btn-secondary {
+                    background-color: $color-gray-light;
+                    color: $color-gray;
+
+                    /* w/ Border and Round */
+                    &.btn-border,
+                    &.btn-round{
+                        border-color: $color-gray-light;
+                        color: $color-gray-light;
+                    }
+
+                    /* Single */
+                    &.btn-single{
+                        color: $color-gray-light;
+                    }
+                }
+
+                .btn-secondary:hover,
+                .btn-secondary:focus { background-color: darken($color-gray-light, 5%); }
+
+            /*  Warning
+                ========================================================================== */
+                .btn-warning {
+                    background-color: $color-warning;
+
+                    /* w/ Border and Round */
+                    &.btn-border,
+                    &.btn-round{
+                        border-color: $color-warning;
+                        color: $color-warning;
+                    }
+
+                    /* Single */
+                    &.btn-single{
+                        color: $color-warning;
+                    }
+                }
+                .btn-warning:hover,
+                .btn-warning:focus { background-color: darken($color-warning, 5%); }
+
+            /*  Alert
+                ========================================================================== */
+                .btn-danger {
+                    background-color: $color-danger;
+
+                    /* w/ Border and Round */
+                    &.btn-border,
+                    &.btn-round{
+                        border-color: $color-danger;
+                        color: $color-danger;
+                    }
+
+                    /* Single */
+                    &.btn-single{
+                        color: $color-danger;
+                    }
+                }
+
+                .btn-danger:hover,
+                .btn-danger:focus { background-color: darken($color-danger, 5%); }
+
+            /*  Success
+                ========================================================================== */
+                .btn-success {
+                    background-color: $color-success;
+
+                    /* w/ Border and Round */
+                    &.btn-border,
+                    &.btn-round{
+                        border-color: $color-success;
+                        color: $color-success;
+                    }
+
+                    /* Single */
+                    &.btn-single{
+                        color: $color-success;
+                    }
+                }
+
+                .btn-success:hover,
+                .btn-success:focus { background-color: darken($color-success, 5%); }
+
+        /*  Sizes
+            ========================================================================== */
+
+            /*  Large
+                ========================================================================== */
+                .btn-large{
+                    font-size: 20px;
+                    padding: 15px 20px;
+
+                    &.btn-round{
+                        @include border-radius(30px);
+                    }
+                }
+
+            /*  Small
+                ========================================================================== */
+                .btn-small{
+                    font-size: 12px;
+                    padding: 8px 5px;
+                }
+
+            /*  Mini
+                ========================================================================== */
+                .btn-mini{
+                    font-size: 11px;
+                    padding: 5px 2px;
+                }
+
+        /*  Styles
+            ========================================================================== */
+
+            /*  Border
+                ========================================================================== */
+                .btn-border{
+                    border-width: 1px;
+                    border-style: solid;
+                    background-color: transparent;
+
+                    &:hover,
+                    &:focus { color: #fff; }
+                }
+
+            /*  Round
+                ========================================================================== */
+                .btn-round{
+                    @include border-radius(20px);
+                    border-width: 1px;
+                    border-style: solid;
+                    background-color: transparent;
+
+                    &:hover,
+                    &:focus { color: #fff; }
+                }
+
+            /*  Single
+                ========================================================================== */
+                .btn-single{
+                    background-color: transparent;
+
+                    &:hover,
+                    &:focus { color: #fff; }
+                }
+
+            /*  Inactive
+                ========================================================================== */
+                .btn.btn-inactive{
+                    border: 1px solid $color-gray-lightest;
+                    color: $color-gray-light;
+                    cursor: default;
+                    background: $color-gray-lightest;
+                }
+
+        /*  Block
+            ========================================================================== */
+            .btn-block{
+                display: block;
+            }
+
+        /*  Social Share
+            ========================================================================== */
+            .social-share{
+                font-size: 0;
+
+                /* Btn */
+                .btn{
+                    + .btn{
+                        margin-left: 4px;
+                    }
+
+                    /* active */
+                    &:active{
+                        @include transition(all .3s ease);
+                        @include box-shadow(inset 0 0 2px 0 rgba(0,0,0,0.5), 0 0 0 2px rgba(0,0,0,0.1));
+                        border-bottom: 1px solid transparent;
+                    }
+
+                    /* icon font-awesome */
+                    > i{
+                        margin: 0 4px 0 2px;
+                        font-size: 16px;
+                        vertical-align: baseline;
+                    }
+                }
+
+                .btn-small{
+                    padding-left: 10px;
+                    padding-right: 10px;
+
+                    /* icon font-awesome */
+                    > i{
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            /* facebook */
+            .social-facebook{
+                background-color: $color-social-facebook;
+                border-color: $border-social-facebook;
+
+                &:hover{
+                    background-color: $hover-social-facebook;
+                }
+            }
+
+            /* twitter */
+            .social-twitter{
+                background-color: $color-social-twitter;
+                border-color: $border-social-twitter;
+
+                &:hover{
+                    background-color: $hover-social-twitter;
+                }
+            }
+
+            /* google-plus */
+            .social-google-plus{
+                background-color: $color-social-google-plus;
+                border-color: $border-social-google-plus;
+
+                &:hover{
+                    background-color: $hover-social-google-plus;
+                }
+            }
+
+            /* linkedin */
+            .social-linkedin{
+                background-color: $color-social-linkedin;
+                border-color: $border-social-linkedin;
+
+                &:hover{
+                    background-color: $hover-social-linkedin;
+                }
+            }
+
+            /* pinterest */
+            .social-pinterest{
+                background-color: $color-social-pinterest;
+                border-color: $border-social-pinterest;
+
+                &:hover{
+                    background-color: $hover-social-pinterest;
+                }
+            }
+
+            /* rss */
+            .social-rss{
+                background-color: $color-social-rss;
+                border-color: $border-social-rss;
+
+                &:hover{
+                    background-color: $hover-social-rss;
+                }
+            }
+
+    }
+
+    /*
+     * CSS for Extra small devices (phones, less than 768px)
+     */
+
+    @media (max-width: $breakpoint) {
+
+    }
+
+    /*
+     * CSS for Small devices (tablets, 768px and up)
+     */
+
+    @media (min-width: $breakpoint) {
+
+    }
+
+    /*
+     * CSS for Medium devices (desktops, 992px and up)
+     */
+
+    @media (min-width: $breakpoint-medium) {
+
+    }
+
+    /*
+     * CSS for Large devices (large desktops, 1200px and up)
+     */
+
+    @media (min-width: $breakpoint-large) {
+
+    }

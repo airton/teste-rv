@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Grid functions
+   ========================================================================== */
+   // Width of the grid
+   $grid-width : ($total-columns * $column-width) + ( $gutter-width * ( $total-columns - 1) );
+
+   // Grid width with lateral space
+   $grid-full : $grid-width + $breath + $breath;
+
+   /*   Width columns
+        ========================================================================== */
+        @function col($n) {
+            @return percentage( (( $n * ($column-width + $gutter-width) - $gutter-width) ) / $grid-width );
+        }
+
+        @mixin width($n) {
+            width: col($n);
+        }
+
+    /*  Column
+        ========================================================================== */
+        %column {
+            float: left;
+            margin-right: percentage( $gutter-width / $grid-width );
+
+            .sg-show-grid &{
+                border:1px solid $color-primary;
+                background-color: #fff;
+                &:before{
+                    content: "col";
+                    font-size: 12px;
+                    color: $color-primary;
+                    display: block;
+                    widows: 100%;
+                }
+            }
+        }
+
+   /*   Push columns (offset)
+        ========================================================================== */
+        @mixin push($n) {
+            margin-left: percentage( (($n * $column-width) + ($n * $gutter-width))  / $grid-width );
+        }
+
+    /*  Last item row (no-margin)
+        ========================================================================== */
+        %last {
+            margin-right: 0;
+            float: right;
+
+            .sg-show-grid &{
+                &:before{
+                    content: "col last";
+                }
+            }
+        }
+
+
+/*  ==========================================================================
+    Grid calc
+    ========================================================================== */
+
+    /*  Grid width
+        ========================================================================== */
+        .row {
+            max-width: $grid-width;
+
+            .sg-show-grid &{
+                border:1px solid $color-primary;
+                &:before{
+                    content: "row";
+                    font-size: 12px;
+                    color: $color-primary;
+                }
+            }
+        }
+
+        .row.full {
+            max-width: $grid-full;
+            padding-left: $breath;
+            padding-right: $breath;
+
+            .sg-show-grid &{
+                &:before{
+                    content: "row full";
+                }
+            }
+        }
+
+        .column { @extend %column; }
+
+    /*  Columns width
+        ========================================================================== */
+        @for $i from 1 through $total-columns {
+            .col-#{$i} {
+                @include width($i);
+                @extend %column;
+            }
+        }
+
+    /*  Offsets
+        ========================================================================== */
+        @for $i from 1 through $total-columns {
+            .offset-#{$i} {
+                @include push($i);
+            }
+        }
+
+    /*  Center
+        ========================================================================== */
+        .centered {
+            display: block;
+            float: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    /*  Last item
+        ========================================================================== */
+        .last { @extend %last; }

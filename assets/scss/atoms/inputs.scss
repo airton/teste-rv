@@ -1,0 +1,282 @@
+/*  ==========================================================================
+    Inputs
+    ========================================================================== */
+
+    /*
+     * CSS for all devices
+     */
+
+    @media only screen {
+
+        /*  Default inputs, selects and textareas
+            ========================================================================== */
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="search"],
+            input[type="tel"],
+            input[type="url"],
+            input[type="date"],
+            input[type="datetime"],
+            input[type="datetime-local"],
+            input[type="month"],
+            input[type="week"],
+            .input,
+            select,
+            .select,
+            textarea,
+            .textarea {
+                width: 100%;
+                padding: 12px 10px;
+                border-width: 2px;
+                border-style: solid;
+                border-color: transparent;
+                background-color: #fff;
+                color: $color-input;
+                font-size: 14px;
+                margin-bottom: 15px;
+                @include transition(all .25s ease);
+                @include border-radius(4px);
+            }
+
+            input:focus,
+            .input:focus,
+            select:focus,
+            .select:focus,
+            textarea:focus,
+            .textarea:focus {
+                background-color: $color-gray-lightest;
+                outline-width: 0;
+            }
+
+        /*  Select
+            ========================================================================== */
+            .select{
+                /* -webkit-appearance: none;
+                   -moz-appearance: none;
+                        appearance: none; */
+
+                color: $color-placeholder;
+                /* font-style: italic; */
+                opacity: 1;
+                font-size: $placeholder-font-size;
+
+                &[value=""]{
+                    color: #BFBFBF;
+                    /* font-style: italic; */
+                }
+            }
+
+        /*  Search
+            ========================================================================== */
+            .input[type="search"] {
+                box-sizing: border-box;
+            }
+
+        /*  Textarea
+            ========================================================================== */
+            .textarea { resize: vertical; }
+
+        /*  Input radio and checkbox
+            ========================================================================== */
+            .radio,
+            .checkbox {
+                margin-bottom: 6px;
+                display: block;
+                color: $color-input;
+
+                .form-label,
+                input[type="radio"],
+                input[type="checkbox"]{
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0 2px 0 0;
+                }
+            }
+
+            .radio input[type="radio"],
+            .checkbox input[type="checkbox"] {
+                width: auto;
+            }
+
+            input[type="radio"],
+            input[type="checkbox"] {
+                line-height: normal;
+                margin: 4px 0 0;
+            }
+
+        /*  Inputs actions
+            ========================================================================== */
+            .form-item-wrap{
+                display: block;
+                position: relative;
+
+                .fa{
+                    position: absolute;
+                    top: 15px;
+                    right: 20px;
+                    color: $color-gray;
+                }
+            }
+
+            .input,
+            select,
+            .select,
+            textarea,
+            .textarea{
+
+                /* Success */
+                &.success{
+                    border-color: $color-success;
+                    color: $color-success;
+
+                    + .fa{
+                        color: $color-success;
+                    }
+                }
+
+                /* Error */
+                &.danger{
+                    border-color: $color-danger;
+                    color: $color-danger;
+
+                    + .fa{
+                        color: $color-danger;
+                    }
+                }
+
+                /* Success */
+                &.warning{
+                    border-color: $color-warning;
+                    color: $color-warning;
+
+                    + .fa{
+                        color: $color-warning;
+                    }
+                }
+            }
+
+        /*  Placeholder
+            ========================================================================== */
+            input::-webkit-input-placeholder,
+            textarea::-webkit-input-placeholder {
+                color: $color-placeholder;
+                /* font-style: italic; */
+                opacity: 1;
+                font-size: $placeholder-font-size;
+            }
+
+            input:-moz-placeholder,
+            textarea:-moz-placeholder {
+                color: $color-placeholder;
+                /* font-style: italic; */
+                opacity: 1;
+                font-size: $placeholder-font-size;
+            }
+
+            input::-moz-placeholder,
+            textarea::-moz-placeholder {
+                color: $color-placeholder;
+                /* font-style: italic; */
+                opacity: 1;
+                font-size: $placeholder-font-size;
+            }
+
+            input:-ms-input-placeholder,
+            textarea:-ms-input-placeholder {
+                color: $color-placeholder;
+                /* font-style: italic; */
+                opacity: 1;
+                font-size: $placeholder-font-size;
+            }
+
+    }
+
+    /*
+     * CSS for Extra small devices (phones, less than 768px)
+     */
+
+    @media (max-width: $breakpoint) {
+
+        /*  Default inputs, selects and textareas
+            ========================================================================== */
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="search"],
+            input[type="tel"],
+            input[type="url"],
+            input[type="date"],
+            input[type="datetime"],
+            input[type="datetime-local"],
+            input[type="month"],
+            input[type="week"],
+            .input,
+            select,
+            .select,
+            textarea,
+            .textarea {
+                border-bottom-color: $color-border-input;
+            }
+
+            input:focus,
+            .input:focus,
+            select:focus,
+            .select:focus,
+            textarea:focus,
+            .textarea:focus {
+                border-bottom-color: darken($color-border-input, 25%);
+            }
+    }
+
+    /*
+     * CSS for Small devices (tablets, 768px and up)
+     */
+
+    @media (min-width: $breakpoint) {
+
+        /*  Default inputs, selects and textareas
+            ========================================================================== */
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="search"],
+            input[type="tel"],
+            input[type="url"],
+            input[type="date"],
+            input[type="datetime"],
+            input[type="datetime-local"],
+            input[type="month"],
+            input[type="week"],
+            .input,
+            select,
+            .select,
+            textarea,
+            .textarea {
+                border-color: $color-border-input;
+            }
+
+            input:focus,
+            select:focus,
+            .select:focus,
+            textarea:focus,
+            .textarea:focus {
+                border-color: darken($color-border-input, 25%);
+            }
+    }
+
+    /*
+     * CSS for Medium devices (desktops, 992px and up)
+     */
+
+    @media (min-width: $breakpoint-medium) {
+
+    }
+
+    /*
+     * CSS for Large devices (large desktops, 1200px and up)
+     */
+
+    @media (min-width: $breakpoint-large) {
+
+    }
