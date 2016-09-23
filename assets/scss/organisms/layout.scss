@@ -23,12 +23,12 @@
                     text-transform: uppercase;
                 }
             }
-		
+
 		/*  Featured Products
     	    ========================================================================== */
     	    .featured-products{
     	    	text-align: center;
-				
+
 				/* Title */
 				.title{
 					text-transform: uppercase;
@@ -83,7 +83,7 @@
     	    		}
     	    	}
     	    }
-    	
+
     	/*  Featured About Us
     	    ========================================================================== */
     	    .featured-about{
@@ -163,7 +163,7 @@
                     width: 96%;
                 }
             }
-        
+
         /*  Filter Products
             ========================================================================== */
             .filter-products{
@@ -227,7 +227,7 @@
                     }
                 }
             }
-    	
+
     	/*  Featured Products
     	    ========================================================================== */
     	    .featured-products{
@@ -237,7 +237,7 @@
     	/*  Boxes Products
     	    ========================================================================== */
     	    .boxes-products{
-				
+
 				/* Box Product */
     	    	.box-product{
 
@@ -247,7 +247,7 @@
     	    	}
 
     	    }
-    	
+
     	/*  Featured About Us
     	    ========================================================================== */
     	    .featured-about{
@@ -301,13 +301,13 @@
     	    ========================================================================== */
     	    .featured-products{
     	    	margin-bottom: 60px;
-				
+
 				/* Title */
 				.title{
 					margin-bottom: 45px;
 				}
     	    }
-        
+
         /*  Boxes Products
             ========================================================================== */
 			.boxes-products{
@@ -318,12 +318,13 @@
     	    		@include transition(box-shadow .2s ease);
 					display: inline-block;
 					vertical-align: top;
-					width: 24.2%;
+					//width: 24.2%;
 					margin-bottom: 10px;
 					min-height: 410px;
+                    text-align: center;
 
 					+ .box-product{
-						margin-left: 1%;
+						//margin-left: 1%;
 					}
 
 					/* Label */
@@ -346,7 +347,7 @@
     	    		/* Hover/Focus */
     	    		&:hover,
     	    		&:focus{
-    	    			@include box-shadow(0 25px 10px 5px rgba(0,0,0,0.1));
+    	    			@include box-shadow(0 20px 15px 10px rgba(0,0,0,0.1));
     	    			@include transition(box-shadow .2s ease);
 
     	    			/* Btn */
@@ -358,7 +359,7 @@
     	    		}
     	    	}
     	    }
-    	
+
     	/*  Featured About Us
     	    ========================================================================== */
     	    .featured-about{
@@ -381,12 +382,12 @@
     	    		margin-left: 14%;
     	    	}
     	    }
-    	
+
     	/*  Filter Products
             ========================================================================== */
-            .filter-products{                
+            .filter-products{
                 margin-bottom: 115px;
-				
+
 				/* Row */
                 .row{
                 	border-bottom: 1px solid $color-gray-light;
@@ -428,7 +429,7 @@
                 	}
 
                 	/* Title */
-                	.filter-title{                	
+                	.filter-title{
                 		font-weight: 500;
                 		color: #000;
                 		margin-right: 20px;
@@ -440,11 +441,63 @@
                 		margin-right: 35px;
 
                 		&:before{
-                			margin: -7px 10px 0 0; 
+                			margin: -7px 10px 0 0;
                 		}
                 	}
                 }
             }
+
+        /*  Slider Products
+            ========================================================================== */
+
+            .swiper-container {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                text-align: left;
+            }
+
+            .swiper-wrapper{
+                width: 9999px;
+            }
+
+            .swiper-slide{
+                display: inline-block;
+            }
+
+            .swiper-pagination {
+                margin: 40px 0;
+                text-align: center;
+
+                a,
+                span {
+                    @include border-radius(50%);
+                    width: 14px;
+                    height: 14px;
+                    text-align: center;
+                    text-decoration: none;
+                    background: $color-gray-light;
+                    display: inline-block;
+                    vertical-align: middle;
+                    font-size: 0;
+                    outline: none;
+
+                    + a,
+                    + span{
+                        margin-left: 10px;
+                    }
+
+                    &.current,
+                    &[class*="active"] {
+                        background-color: #fff;
+                        width: 17px;
+                        height: 17px;
+                        border: 3px solid $color-gray-light;
+                    }
+                }
+            }
+
+
     }
 
     /*

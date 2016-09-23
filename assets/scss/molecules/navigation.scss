@@ -43,7 +43,7 @@
                     color: $color-gray;
                 }
             }
-        
+
     }
 
     /*
@@ -51,7 +51,7 @@
      */
 
     @media (max-width: $breakpoint) {
-        
+
         /*  Footer
             ========================================================================== */
             .footer{
@@ -66,7 +66,7 @@
                 }
             }
     }
-    
+
     /*
      * Custom from menu mobile
      */
@@ -78,7 +78,6 @@
             .navbar{
                 @include transition( left .2s ease );
                 background-color: #a0c6ba;
-                //border-bottom: 1px solid $color-gray-light;
                 position: fixed;
                 z-index: 1;
                 left: 0;
@@ -116,6 +115,7 @@
                 .navbar-brand{
                     width: 100%;
                     text-align: center;
+                    zoom: 0.7;
                 }
 
             /*  Navbar Menu
@@ -174,7 +174,7 @@
                         padding: 10px 8px;
                     }
                 }
-        
+
             /*  Navbar Menu Open
                 ========================================================================== */
                 .navbar-menu-open{
@@ -195,7 +195,7 @@
      */
 
     @media (min-width: $breakpoint) {
-        
+
         /*  Footer
             ========================================================================== */
             .footer{
@@ -265,14 +265,16 @@
             /*  Navbar brand
                 ========================================================================== */
                 .navbar-brand{
-                    @include transition(padding .2s ease);
+                    @include transition(padding .2s ease, zoom .2s ease);
                     padding: 15px 0;
                     height: auto;
+                    zoom: 1;
 
                     /* Fixed */
                     .fixed &{
-                        @include transition(padding .2s ease);
+                        @include transition(padding .2s ease, zoom .2s ease);
                         padding: 5px 0;
+                        zoom: 0.8;
                     }
 
                     a,img{
@@ -293,7 +295,12 @@
                     /* Fixed */
                     .fixed &{
                         @include transition(padding .2s ease);
-                        padding: 15px 0;
+                        padding: 12px 0;
+
+                        /* Menu item */
+                        [class*="item"]{
+                            font-size: 14px;
+                        }
                     }
 
                     > *{
@@ -348,6 +355,19 @@
                         }
                     }
 
+                }
+
+            /*  Navbar cart
+                ========================================================================== */
+                .navbar-cart{
+                    @include transition(zoom .2s ease);
+                    zoom: 1;
+
+                    /* Fixed */
+                    .fixed &{
+                        @include transition(zoom .2s ease);
+                        zoom: 0.8;
+                    }
                 }
 
         /*  Dropdown menu

@@ -10,16 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="icon" href="favicon.ico">
-    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+    <link rel="apple-touch-icon" href="apple-icon.png">
 
     <!-- Facebook -->
     <meta property="fb:app_id" content="ID_APP" />
     <meta property="fb:admins" content="100003036613503" />
     <meta property="og:site_name" content="Nome do Projeto"/>
-    <meta property="og:title" content="Título do Projeto - Nome do Projeto" />
+    <meta property="og:title" content="Teste RV" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="" />
     <meta property="og:url" content="URL_do_site" />
@@ -28,7 +28,7 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@perfildotwitter">
-    <meta name="twitter:title" content="">
+    <meta name="twitter:title" content="Teste RV">
     <meta name="twitter:description" content="">
     <meta name="twitter:image:src" content="URL_da_imagem">
 
@@ -55,7 +55,7 @@
 
     <!-- Header -->
     <header class="header" role="banner">
-		
+
 		<!-- Navbar -->
 		<nav class="navbar" aria-label="main navigation" role="navigation">
 
@@ -84,11 +84,11 @@
 
     <!-- Main -->
     <main class="main" role="main">
-		
+
 		<!-- Featured Collection -->
 		<div class="featured-collection">
 			<div class="row">
-				
+
 				<!-- Featured Collection Hold -->
 				<div class="featured-collection-hold">
 
@@ -107,22 +107,22 @@
 		<!-- Filter Products -->
 		<div class="filter-products">
 			<div class="row">
-				
+
 				<!-- Filter Item -->
 				<div class="filter-item">
 
 					<!-- Checkbox -->
 					<div class="checkbox">
-						
+
 						<!-- Title -->
 						<span class="filter-title">Type:</span>
-						
+
 						<!-- Input -->
 		                <input id="armchair" name="armchair" value="armchair" type="checkbox" ng-model="ctrl.filterType['armchair']">
-		                
+
 						<!-- Label -->
 		                <label class="filter-label" for="armchair">Armchairs</label>
-						
+
 						<!-- Input -->
 		                <input id="chair" name="chair" value="chair" type="checkbox" ng-model="ctrl.filterType['chair']">
 
@@ -130,22 +130,22 @@
 		                <label class="filter-label" for="chair">Chairs</label>
 		            </div>
 				</div>
-				
+
 				<!-- Filter Item -->
 				<div class="filter-item">
 
 					<!-- Checkbox -->
-					<div class="checkbox">						
-						
+					<div class="checkbox">
+
 						<!-- Title -->
 						<span class="filter-title">Material:</span>
-						
+
 						<!-- Input -->
 		                <input id="wood" name="wood" value="wood" type="checkbox" ng-model="ctrl.filterMaterial['wood']">
-		                
+
 						<!-- Label -->
 		                <label class="filter-label" for="wood">Wood</label>
-						
+
 						<!-- Input -->filterMaterial
 		                <input id="foam" name="foam" value="foam" type="checkbox" ng-model="ctrl.filterMaterial['foam']">
 
@@ -162,129 +162,87 @@
 		<!-- Featured Products -->
 		<div class="featured-products">
 			<div class="row">
-				
+
 				<!-- Title -->
 				<h3 class="title">New Armchairs</h3>
-	
-				<!-- Box Products -->
-				<div class="boxes-products">
-					
-					<!-- Box -->
-					<div class="box-product" ng-repeat="product in ctrl.products | filter:ctrl.filterByType | filter:ctrl.filterByMaterial">
-						
-						<!-- Label -->
-						<div class="label"><span>{{product.type}}</span>/<span>{{product.material}}</span></div>
 
-						<!-- Image -->
-						<figure class="image"><a href="#"><img src="{{product.photo}}"></a></figure>
+                <!-- Container -->
+                <div class="swiper-container">
 
-						<!-- Name Product -->
-						<h4 class="name"><a href="#">{{product.name}}</a></h4>
+                    <!-- Box Products -->
+                    <div class="boxes-products swiper-wrapper">
 
-						<!-- Price -->
-						<span class="price">{{product.price | currency}}</span>
+                        <!-- Slide Prodcuts -->
+                        <div class="box-product swiper-slide" ng-repeat="product in ctrl.products | filter:{category:'new'} | filter:ctrl.filterByType | filter:ctrl.filterByMaterial">
 
-						<!-- Btn -->
-						<a href="#" class="btn btn-green"><i class="ico-cart-white"></i>By Now</a>
-					</div>
+                            <!-- Label -->
+                            <div class="label"><span>{{product.type}}</span>/<span>{{product.material}}</span></div>
 
-				</div>
+                            <!-- Image -->
+                            <figure class="image"><a href="#"><img ng-src="{{product.photo}}"></a></figure>
+
+                            <!-- Name Product -->
+                            <h4 class="name"><a href="#">{{product.name}}</a></h4>
+
+                            <!-- Price -->
+                            <span class="price">{{product.price | currency}}</span>
+
+                            <!-- Btn -->
+                            <a href="#" class="btn btn-green"><i class="ico-cart-white"></i>By Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+
+                </div>
 			</div>
 		</div>
 
 		<!-- Featured Products -->
 		<div class="featured-products">
 			<div class="row">
-				
+
 				<!-- Title -->
 				<h3 class="title">Best Of 2016</h3>
-	
-				<!-- Box Products -->
-				<div class="boxes-products">
-					
-					<!-- Box -->
-					<div class="box-product">
-						
-						<!-- Label -->
-						<div class="label"><span>Armchairs</span>/<span>Wood</span></div>
 
-						<!-- Image -->
-						<figure class="image"><a href="#"><img src="http://fakeimg.pl/250x100/"></a></figure>
+				<!-- Container -->
+                <div class="swiper-container">
 
-						<!-- Name Product -->
-						<h4 class="name"><a href="#">Modern Gray Armchair</a></h4>
+                    <!-- Box Products -->
+                    <div class="boxes-products swiper-wrapper">
 
-						<!-- Price -->
-						<span class="price">$ 350,00</span>
+                        <!-- Slide Prodcuts -->
+                        <div class="box-product swiper-slide" ng-repeat="product in ctrl.products | filter:{category:'best'} | filter:ctrl.filterByType | filter:ctrl.filterByMaterial">
 
-						<!-- Btn -->
-						<a href="#" class="btn btn-green"><i class="ico-cart-white"></i>By Now</a>
-					</div>
+                            <!-- Label -->
+                            <div class="label"><span>{{product.type}}</span>/<span>{{product.material}}</span></div>
 
-					<!-- Box -->
-					<div class="box-product">
-						
-						<!-- Label -->
-						<div class="label"><span>Armchairs</span>/<span>Wood</span></div>
+                            <!-- Image -->
+                            <figure class="image"><a href="#"><img ng-src="{{product.photo}}"></a></figure>
 
-						<!-- Image -->
-						<figure class="image"><a href="#"><img src="http://fakeimg.pl/250x100/"></a></figure>
+                            <!-- Name Product -->
+                            <h4 class="name"><a href="#">{{product.name}}</a></h4>
 
-						<!-- Name Product -->
-						<h4 class="name"><a href="#">Modern Gray Armchair</a></h4>
+                            <!-- Price -->
+                            <span class="price">{{product.price | currency}}</span>
 
-						<!-- Price -->
-						<span class="price">$ 350,00</span>
+                            <!-- Btn -->
+                            <a href="#" class="btn btn-green"><i class="ico-cart-white"></i>By Now</a>
+                        </div>
+                    </div>
 
-						<!-- Btn -->
-						<a href="#" class="btn btn-green"><i class="ico-cart-white"></i>By Now</a>
-					</div>
-					
-					<!-- Box -->
-					<div class="box-product">
-						
-						<!-- Label -->
-						<div class="label"><span>Armchairs</span>/<span>Wood</span></div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
 
-						<!-- Image -->
-						<figure class="image"><a href="#"><img src="http://fakeimg.pl/250x100/"></a></figure>
-
-						<!-- Name Product -->
-						<h4 class="name"><a href="#">Modern Gray Armchair</a></h4>
-
-						<!-- Price -->
-						<span class="price">$ 350,00</span>
-
-						<!-- Btn -->
-						<a href="#" class="btn btn-green"><i class="ico-cart-white"></i>By Now</a>
-					</div>
-
-					<!-- Box -->
-					<div class="box-product">
-						
-						<!-- Label -->
-						<div class="label"><span>Armchairs</span>/<span>Wood</span></div>
-
-						<!-- Image -->
-						<figure class="image"><a href="#"><img src="http://fakeimg.pl/250x100/"></a></figure>
-
-						<!-- Name Product -->
-						<h4 class="name"><a href="#">Modern Gray Armchair</a></h4>
-
-						<!-- Price -->
-						<span class="price">$ 350,00</span>
-
-						<!-- Btn -->
-						<a href="#" class="btn btn-green"><i class="ico-cart-white"></i>By Now</a>
-					</div>
-				</div>
+                </div>
 			</div>
 		</div>
 
 		<!-- Featured About Us -->
 		<div class="featured-about">
 			<div class="row">
-				
+
 				<!-- Title -->
 				<h3 class="title">About US</h3>
 
@@ -299,7 +257,7 @@
 
     	<!-- Logo Footer -->
     	<a href="/" class="logo-footer"><i class="ico-logo-gray"></i></a>
-		
+
 		<!-- Copy Right -->
 		<span class="copy-right">Copyright 2016 - all rights reserved</span>
     </footer>

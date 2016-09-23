@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('sdasdfasdf');
-
 // Gulp Plugins
 var gulp 		= require('gulp'),
     plugins     = require('gulp-load-plugins')({    // Load all gulp plugins automatically
@@ -127,8 +125,8 @@ var gulp 		= require('gulp'),
 
 			// scripts.min.js
 			gulp.src([
-                    //dirs._build+'/js/libs/jquery.min.js', // jQuery Lib
-    				dirs._components+'/angular/angular.min.js', // Angularjs
+                    dirs._components+'/angular/angular.min.js', // Angularjs
+                    dirs._components+'/Swiper/dist/js/swiper.js', // Swiper
                     dirs._assets+'/js/appRV.js',
     				dirs._assets+'/js/scripts.js'
 				])
@@ -156,7 +154,7 @@ var gulp 		= require('gulp'),
 	//  BROWSER SYNC ------------------------------------------------------
     	gulp.task('browser-sync', function() {
             browserSync.init({
-                proxy: "local.teste-rv"
+                proxy: "localhost/teste-rv"
             });
     	});
 

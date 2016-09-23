@@ -19,6 +19,7 @@
             self.externalLinks();
             self.backTop();
             self.fixNavMenu();
+            self.slideshow();
         },
 
         // External links
@@ -61,6 +62,17 @@
                 }
             });
         },
+
+        slideshow: function(){
+            setTimeout(function(){
+                var swiper = new Swiper('.swiper-container', {
+                    pagination: '.swiper-pagination',
+                    slidesPerView: 4,
+                    paginationClickable: true,
+                    spaceBetween: 10
+                });
+            }, 200);
+        }
 
     };
 
