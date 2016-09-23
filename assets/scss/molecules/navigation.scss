@@ -8,60 +8,42 @@
 
     @media only screen {
 
-        /*  Breadcrumbs
+        /*  Navbar
             ========================================================================== */
-            .breadcrumbs{
-                font-size: 12px;
-                line-height: 16px;
-                color: $color-gray;
 
-                a{
-                    font-weight: 500;
+            /*  Navbar brand
+                ========================================================================== */
+                .navbar-brand{
+                    > *{
+                        margin: 0;
+                    }
                 }
 
-                .breadcrumb_last{
-                    font-weight: 400;
+            /*  Navbar menu
+                ========================================================================== */
+                .navbar-menu{
+
+                    /* Menu item */
+                    [class*="item"]{
+                        font-weight: 500;
+                        text-transform: uppercase;
+                    }
+                }
+
+        /*  Footer
+            ========================================================================== */
+            .footer{
+                background-color: #e2e2e2;
+                text-align: center;
+
+                /* Copy right */
+                .copy-right{
+                    font-size: 16px;
+                    line-height: 18px;
                     color: $color-gray;
                 }
             }
-
-        /*  Pagination
-            ========================================================================== */
-            .pagination{
-                padding: 10px 0;
-                margin-top: 20px;
-
-                > *{
-                    display: inline-block;
-                    vertical-align: middle;
-                    border: 1px solid $color-primary;
-                    font-size: 18px;
-                    line-height: 18px;
-                    font-weight: 700;
-                    padding: 10px 12px;
-                    color: $color-primary;
-
-                    &:hover,
-                    &:focus{
-                        text-decoration: none;
-                        background-color: $color-gray-lightest;
-                    }
-
-                    &.current{
-                        color: #fff;
-                        background-color: $color-primary;
-                    }
-
-                    &.next,
-                    &.prev{
-                        font-size: 16px;
-                    }
-
-                    &.dots{
-                        border:none;
-                    }
-                }
-            }
+        
     }
 
     /*
@@ -69,22 +51,34 @@
      */
 
     @media (max-width: $breakpoint) {
-
-        /*  Breadcrumbs
+        
+        /*  Footer
             ========================================================================== */
-            .breadcrumbs{
-                padding: 10px;
+            .footer{
+                padding: 20px 10px;
+
+                > *{
+                    display: block;
+
+                    + *{
+                        margin-top: 10px;
+                    }
+                }
             }
     }
+    
+    /*
+     * Custom from menu mobile
+     */
 
-    /* Custom form menu mobile */
     @media (max-width: $breakpoint-medium) {
 
         /*  Navbar
             ========================================================================== */
             .navbar{
                 @include transition( left .2s ease );
-                background-color: $color-primary;
+                background-color: #a0c6ba;
+                //border-bottom: 1px solid $color-gray-light;
                 position: fixed;
                 z-index: 1;
                 left: 0;
@@ -100,7 +94,7 @@
             /*  Navbar hold
                 ========================================================================== */
                 .navbar-hold{
-                    padding: 5px 10px 5px 40px;
+                    padding: 5px 40px 5px 40px;
                     font-size: 0;
                     height: 56px;
                     @include transition( padding-left .2s ease );
@@ -111,37 +105,25 @@
                         padding-left: 10px;
                     }
 
-                    /* Navbar form open */
-                    .navbar-form-open &{
-                        padding-bottom: 130px;
-                    }
-
                     > *{
                         display: inline-block;
                         vertical-align: middle;
-
-                        &.navbar-buttons,
-                        &.navbar-user,
-                        &.navbar-back{
-                            text-align: right;
-                        }
                     }
                 }
 
             /*  Navbar brand
                 ========================================================================== */
                 .navbar-brand{
-
-                    a,img{
-                        width: 105px;
-                    }
+                    width: 100%;
+                    text-align: center;
                 }
 
             /*  Navbar Menu
                 ========================================================================== */
                 .navbar-menu{
                     @include transition( left .2s ease );
-                    background-color: #1f363f;
+                    background-color: #fff;
+                    border-right: 1px solid $color-gray-light;
                     position: fixed;
                     top: 0;
                     left: -70%;
@@ -165,7 +147,7 @@
                         font-size: 22px;
                         line-height: 20px;
                         position: absolute;
-                        color: #fff;
+                        color: $color-purple;
                         right: -40px;
                         top: 5px;
                         padding: 10px;
@@ -182,69 +164,29 @@
                     [class*="item"]{
                         font-size: 18px;
                         line-height: 18px;
-                        font-weight: 700;
                         position: relative;
                     }
 
                     /* Menu link */
                     a{
                         display: block;
-                        color: #fff;
+                        color: $color-purple;
                         padding: 10px 8px;
                     }
                 }
-
+        
             /*  Navbar Menu Open
                 ========================================================================== */
                 .navbar-menu-open{
                     overflow: hidden;
                 }
 
-            /*  Navbar form
+            /*  Navbar cart
                 ========================================================================== */
-                .navbar-form{
-                    margin: 0;
-                    text-align: right;
-                    padding-right: 10px;
-
-                    .input{
-                        position: absolute;
-                        left: 0;
-                        top: 60px;
-                        margin: 2%;
-                        width: 96%;
-                        opacity: 0;
-                        visibility: hidden;
-
-                        /* Navbar form open */
-                        .navbar-form-open & {
-                            opacity: 1;
-                            visibility: visible;
-                        }
-                    }
-
-                    .btn{
-                        width: 24px;
-                        padding: 8px 0;
-                        border: 1px solid transparent;
-
-                        .fa{ margin: 0 5px; }
-                    }
-                }
-
-            /*  Navbar button
-                ========================================================================== */
-                .navbar-buttons{
-
-                    > *{
-                        padding: 8px 5px;
-                        width: 100%;
-                        font-size: 14px;
-
-                        + *{
-                            display: none;
-                        }
-                    }
+                .navbar-cart{
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
                 }
     }
 
@@ -253,12 +195,19 @@
      */
 
     @media (min-width: $breakpoint) {
-
-        /*  Breadcrumbs
+        
+        /*  Footer
             ========================================================================== */
-            .breadcrumbs{
-                padding: 20px 0;
-                margin-bottom: 30px;
+            .footer{
+                padding: 52px 10px;
+
+                > *{
+                    display: inline-block;
+                    vertical-align: middle;
+                    + *{
+                        margin-left: 20px;
+                    }
+                }
             }
     }
 
@@ -271,8 +220,19 @@
         /*  Navbar
             ========================================================================== */
             .navbar{
-                background-color: $color-gray-dark;
-                min-height: 104px;
+                @include transition(background-color .2s ease);
+                background-color: transparent;
+                position: fixed;
+                width: 100%;
+                left: 0;
+                z-index: 1;
+
+                /* Fixed */
+                .fixed &{
+                    @include transition(background-color .2s ease);
+                    @include box-shadow(0 1px 1px 1px rgba(0,0,0,0.1));
+                    background-color: #a0c6ba;
+                }
             }
 
             /*  Navbar hold
@@ -284,23 +244,36 @@
                     > *{
                         display: inline-block;
                         vertical-align: middle;
-                    }
-                }
+                        width: 30%;
 
-            /*  Navbar fixed
-                ========================================================================== */
-                .navbar-fixed{
-                    position: fixed;
-                    width: 100%;
-                    top: 0;
-                    left: 0;
+                        + *{
+                            width: 70%;
+                            text-align: right;
+                        }
+
+                        > *{
+                            display: inline-block;
+                            vertical-align: middle;
+
+                            + *{
+                                margin-left: 30px;
+                            }
+                        }
+                    }
                 }
 
             /*  Navbar brand
                 ========================================================================== */
                 .navbar-brand{
+                    @include transition(padding .2s ease);
                     padding: 15px 0;
                     height: auto;
+
+                    /* Fixed */
+                    .fixed &{
+                        @include transition(padding .2s ease);
+                        padding: 5px 0;
+                    }
 
                     a,img{
                         display: inline-block;
@@ -311,10 +284,17 @@
             /*  Navbar menu
                 ========================================================================== */
                 .navbar-menu{
-                    padding: 32px 0;
+                    @include transition(padding .2s ease);
+                    padding: 40px 0;
                     margin-bottom: 0;
                     margin-top: 0;
                     display: inline-block;
+
+                    /* Fixed */
+                    .fixed &{
+                        @include transition(padding .2s ease);
+                        padding: 15px 0;
+                    }
 
                     > *{
                         display: inline-block;
@@ -325,8 +305,11 @@
                     [class*="item"]{
                         font-size: 18px;
                         line-height: 18px;
-                        font-weight: 700;
                         position: relative;
+
+                        + [class*="item"]{
+                            margin-left: 30px;
+                        }
 
                         &:hover,
                         &:focus{
@@ -343,7 +326,7 @@
                     /* Menu link */
                     a{
                         display: block;
-                        color: #fff;
+                        color: $color-purple;
                         padding: 10px 8px;
 
                         .fa{
@@ -353,7 +336,7 @@
                         &:hover,
                         &:focus{
                             text-decoration: none;
-                            color: $color-primary;
+                            color: #000;
                         }
                     }
 
@@ -361,79 +344,10 @@
                     [class*="current"]{
                         a{
                             text-decoration: none;
-                            color: $color-primary;
+                            color: #000;
                         }
                     }
 
-                }
-
-            /*  Navbar form
-                ========================================================================== */
-                .navbar-form{
-                    margin-bottom: 0;
-                    margin-top: 0;
-                    padding: 32px 0;
-                    position: relative;
-                    //min-width: 200px;
-                    height: 104px;
-                    overflow: hidden;
-
-                    .input{
-                        border: none;
-                        background-color: rgba(0,0,0,0.2);
-                        background-color: #fff;
-                        color: $color-primary;
-                        width: 100%;
-                        padding: 8px 45px 8px 10px;
-                        font-size: 16px;
-                        line-height: 24px;
-                        right: -100%;
-                        position: absolute;
-                        @include transition( right .3s ease );
-                    }
-
-                    .btn{
-                        @include transition( right .3s ease );
-                        width: auto;
-                        position: absolute;
-                        line-height: 22px;
-                        right: 0;
-                    }
-
-                    /* Nav Form Active */
-                    &.nav-form-active{
-                        .input{
-                            right: 0;
-                            @include transition( right .3s ease );
-                        }
-
-                        .btn{
-                            right: -70px;
-                            color: $color-primary;
-                            @include transition( right .3s ease );
-
-                            .fa{
-                                margin-right: 15px;
-                            }
-                        }
-                    }
-                }
-
-            /*  Navbar button
-                ========================================================================== */
-                .navbar-buttons{
-                    padding: 32px 0;
-
-                    > * + *{
-                        margin-left: 5px;
-                    }
-                }
-
-            /*  Navbar logged / back
-                ========================================================================== */
-                .navbar-user,
-                .navbar-back{
-                    padding: 32px 0;
                 }
 
         /*  Dropdown menu
@@ -545,7 +459,7 @@
                     }
 
                     &[class*="active"]{
-                        background-color: $color-primary;
+                        background-color: $color-gray-light;
                         color: #fff;
                     }
 

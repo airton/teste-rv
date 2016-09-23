@@ -49,21 +49,259 @@
     ga('create','UA-XXXXX-X','auto');ga('send','pageview');
     </script>
 </head>
-<body>
-    <!-- Header -->
+<body class="home" ng-app="appRV" ng-controller="appRVCtrl as ctrl">
+    <!-- Sr Only -->
     <a href="#conteudo" class="sr-only go-content" tabindex="1" accesskey="1">Ir para conteúdo</a>
-    <header class="header" role="banner">
 
+    <!-- Header -->
+    <header class="header" role="banner">
+		
+		<!-- Navbar -->
+		<nav class="navbar" aria-label="main navigation" role="navigation">
+
+        	<!-- Navbar hold -->
+	        <div class="navbar-hold row">
+
+	            <!-- Navbar Brand -->
+	            <div class="navbar-brand">
+	                <h1><a href="/"><i class="ico-logo-white"></i></a></h1>
+	            </div>
+
+	            <div class="navbar-navigation">
+	            	<!-- Navbar menu -->
+	            <ul class="navbar-menu" role="menubar">
+	                <li class="menu-item"><a href="#">Home</a></li>
+	                <li class="menu-item"><a href="#">Products</a></li>
+	                <li class="menu-item current"><a href="#">Contact</a></li>
+	            </ul>
+
+	            <!-- Navbar cart -->
+	            <a class="navbar-cart" href="#"><i class="ico-cart-purple"></i></a>
+	            </div>
+	        </div>
+	    </nav>
     </header>
 
     <!-- Main -->
-    <main role="main">
+    <main class="main" role="main">
+		
+		<!-- Featured Collection -->
+		<div class="featured-collection">
+			<div class="row">
+				
+				<!-- Featured Collection Hold -->
+				<div class="featured-collection-hold">
 
+					<!-- Title -->
+					<h2 class="title">Collection 2016</h2>
+
+					<!-- Desc -->
+					<p class="desc">Some cool text here about the new collection of design furniture 2016</p>
+
+					<!-- Btn -->
+					<a class="btn btn-purple">By now</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Filter Products -->
+		<div class="filter-products">
+			<div class="row">
+				
+				<!-- Filter Item -->
+				<div class="filter-item">
+
+					<!-- Checkbox -->
+					<div class="checkbox">
+						
+						<!-- Title -->
+						<span class="filter-title">Type:</span>
+						
+						<!-- Input -->
+		                <input id="armchair" name="armchair" value="armchair" type="checkbox" ng-model="ctrl.filterType['armchair']">
+		                
+						<!-- Label -->
+		                <label class="filter-label" for="armchair">Armchairs</label>
+						
+						<!-- Input -->
+		                <input id="chair" name="chair" value="chair" type="checkbox" ng-model="ctrl.filterType['chair']">
+
+		                <!-- Label -->
+		                <label class="filter-label" for="chair">Chairs</label>
+		            </div>
+				</div>
+				
+				<!-- Filter Item -->
+				<div class="filter-item">
+
+					<!-- Checkbox -->
+					<div class="checkbox">						
+						
+						<!-- Title -->
+						<span class="filter-title">Material:</span>
+						
+						<!-- Input -->
+		                <input id="wood" name="wood" value="wood" type="checkbox" ng-model="ctrl.filterMaterial['wood']">
+		                
+						<!-- Label -->
+		                <label class="filter-label" for="wood">Wood</label>
+						
+						<!-- Input -->filterMaterial
+		                <input id="foam" name="foam" value="foam" type="checkbox" ng-model="ctrl.filterMaterial['foam']">
+
+		                <!-- Label -->
+		                <label class="filter-label" for="foam">Foam</label>
+		            </div>
+				</div>
+
+				<!-- See All -->
+				<div class="see-all"><a href="#" class="btn btn-green">See all products</a></div>
+			</div>
+		</div>
+
+		<!-- Featured Products -->
+		<div class="featured-products">
+			<div class="row">
+				
+				<!-- Title -->
+				<h3 class="title">New Armchairs</h3>
+	
+				<!-- Box Products -->
+				<div class="boxes-products">
+					
+					<!-- Box -->
+					<div class="box-product" ng-repeat="product in ctrl.products | filter:ctrl.filterByType | filter:ctrl.filterByMaterial">
+						
+						<!-- Label -->
+						<div class="label"><span>{{product.type}}</span>/<span>{{product.material}}</span></div>
+
+						<!-- Image -->
+						<figure class="image"><a href="#"><img src="{{product.photo}}"></a></figure>
+
+						<!-- Name Product -->
+						<h4 class="name"><a href="#">{{product.name}}</a></h4>
+
+						<!-- Price -->
+						<span class="price">{{product.price | currency}}</span>
+
+						<!-- Btn -->
+						<a href="#" class="btn btn-green"><i class="ico-cart-white"></i>By Now</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Featured Products -->
+		<div class="featured-products">
+			<div class="row">
+				
+				<!-- Title -->
+				<h3 class="title">Best Of 2016</h3>
+	
+				<!-- Box Products -->
+				<div class="boxes-products">
+					
+					<!-- Box -->
+					<div class="box-product">
+						
+						<!-- Label -->
+						<div class="label"><span>Armchairs</span>/<span>Wood</span></div>
+
+						<!-- Image -->
+						<figure class="image"><a href="#"><img src="http://fakeimg.pl/250x100/"></a></figure>
+
+						<!-- Name Product -->
+						<h4 class="name"><a href="#">Modern Gray Armchair</a></h4>
+
+						<!-- Price -->
+						<span class="price">$ 350,00</span>
+
+						<!-- Btn -->
+						<a href="#" class="btn btn-green"><i class="ico-cart-white"></i>By Now</a>
+					</div>
+
+					<!-- Box -->
+					<div class="box-product">
+						
+						<!-- Label -->
+						<div class="label"><span>Armchairs</span>/<span>Wood</span></div>
+
+						<!-- Image -->
+						<figure class="image"><a href="#"><img src="http://fakeimg.pl/250x100/"></a></figure>
+
+						<!-- Name Product -->
+						<h4 class="name"><a href="#">Modern Gray Armchair</a></h4>
+
+						<!-- Price -->
+						<span class="price">$ 350,00</span>
+
+						<!-- Btn -->
+						<a href="#" class="btn btn-green"><i class="ico-cart-white"></i>By Now</a>
+					</div>
+					
+					<!-- Box -->
+					<div class="box-product">
+						
+						<!-- Label -->
+						<div class="label"><span>Armchairs</span>/<span>Wood</span></div>
+
+						<!-- Image -->
+						<figure class="image"><a href="#"><img src="http://fakeimg.pl/250x100/"></a></figure>
+
+						<!-- Name Product -->
+						<h4 class="name"><a href="#">Modern Gray Armchair</a></h4>
+
+						<!-- Price -->
+						<span class="price">$ 350,00</span>
+
+						<!-- Btn -->
+						<a href="#" class="btn btn-green"><i class="ico-cart-white"></i>By Now</a>
+					</div>
+
+					<!-- Box -->
+					<div class="box-product">
+						
+						<!-- Label -->
+						<div class="label"><span>Armchairs</span>/<span>Wood</span></div>
+
+						<!-- Image -->
+						<figure class="image"><a href="#"><img src="http://fakeimg.pl/250x100/"></a></figure>
+
+						<!-- Name Product -->
+						<h4 class="name"><a href="#">Modern Gray Armchair</a></h4>
+
+						<!-- Price -->
+						<span class="price">$ 350,00</span>
+
+						<!-- Btn -->
+						<a href="#" class="btn btn-green"><i class="ico-cart-white"></i>By Now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Featured About Us -->
+		<div class="featured-about">
+			<div class="row">
+				
+				<!-- Title -->
+				<h3 class="title">About US</h3>
+
+				<!-- Desc -->
+				<p class="desc">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
+			</div>
+		</div>
     </main>
 
     <!-- Footer -->
-    <footer class="footer container" role="contentinfo">
+    <footer class="footer" role="contentinfo">
 
+    	<!-- Logo Footer -->
+    	<a href="/" class="logo-footer"><i class="ico-logo-gray"></i></a>
+		
+		<!-- Copy Right -->
+		<span class="copy-right">Copyright 2016 - all rights reserved</span>
     </footer>
 
     <!-- Scripts -->

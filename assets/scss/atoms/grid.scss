@@ -30,6 +30,15 @@
      */
 
     @media only screen and (min-width: $breakpoint) {
+        
         /* Grid calc */
         @import "grid-functions";
+        
+
+        .featured-collection-hold{
+            @include width(6);
+            @extend %column;
+            @extend %last;
+        }
+
    }

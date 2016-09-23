@@ -8,6 +8,119 @@
 
     @media only screen {
 
+        /*  Featured Collection
+            ========================================================================== */
+            .featured-collection{
+
+                /* Title/Desc */
+                .title,
+                .desc{
+                    color: $color-purple;
+                }
+
+                /* Title */
+                .title{
+                    text-transform: uppercase;
+                }
+            }
+		
+		/*  Featured Products
+    	    ========================================================================== */
+    	    .featured-products{
+    	    	text-align: center;
+				
+				/* Title */
+				.title{
+					text-transform: uppercase;
+					font-size: 20px;
+					line-height: 20px;
+					color: $color-gray;
+					font-weight: 400;
+				}
+    	    }
+
+		/*  Boxes Products
+    	    ========================================================================== */
+    	    .boxes-products{
+
+    	    	/* Box Product */
+    	    	.box-product{
+    	    		background-color: #fff;
+    	    		padding: 20px;
+
+    	    		/* Label */
+    	    		.label{
+    	    			color: $color-gray-light;
+    	    			text-transform: uppercase;
+    	    			font-size: 12px;
+    	    			line-height: 12px;
+    	    			font-weight: 700;
+    	    			margin-bottom: 10px;
+    	    		}
+
+    	    		/* Image */
+    	    		.image{
+    	    			display: block;
+    	    			margin-bottom: 5px;
+    	    		}
+
+    	    		/* Name */
+    	    		.name{
+    	    			color: $color-gray;
+    	    			font-size: 16px;
+    	    			line-height: 22px;
+    	    			font-weight: 400;
+    	    			margin-bottom: 8px;
+    	    		}
+
+    	    		/* Price */
+    	    		.price{
+    	    			color: #000;
+    	    			font-size: 18px;
+    	    			line-height: 24px;
+    	    			margin-bottom: 15px;
+    	    			display: block;
+    	    		}
+    	    	}
+    	    }
+    	
+    	/*  Featured About Us
+    	    ========================================================================== */
+    	    .featured-about{
+    	    	text-align: center;
+    	    	background-color: $color-purple;
+
+    	    	/* Title */
+    	    	.title{
+    	    		text-transform: uppercase;
+					font-size: 25px;
+					line-height: 25px;
+					color: #fff;
+					font-weight: 400;
+					position: relative;
+					display:inline-block;
+					text-align: center;
+					padding-bottom: 25px;
+
+					/* Before */
+					&:after{
+						content: "";
+						width: 100px;
+						height: 9px;
+						background-color: $color-pink;
+						display: block;
+						bottom: -10px;
+						left: 50%;
+						margin-left: -50px;
+						position: absolute;
+					}
+    	    	}
+
+    	    	/* Desc */
+    	    	.desc{
+    	    		color: #fff;
+    	    	}
+    	    }
     }
 
     /*
@@ -16,6 +129,134 @@
 
     @media (max-width: $breakpoint) {
 
+        /*  Main
+            ========================================================================== */
+            .main{
+                padding: 0 10px;
+            }
+
+        /*  Featured Collection
+            ========================================================================== */
+            .featured-collection{
+                background: url(../img/bg-collection-mobile.png) no-repeat scroll top center / cover;
+                margin: 0 -10px;
+                min-height: 520px;
+                padding: 70px 10px 70px 10px;
+                position: relative;
+
+                /* Title/Desc */
+                .title,
+                .desc{
+                    text-align: center;
+                }
+
+                /* Title */
+                .title{
+                    margin-bottom: 5px;
+                }
+
+                /* Btn */
+                .btn{
+                    position: absolute;
+                    left: 2%;
+                    bottom: 10px;
+                    width: 96%;
+                }
+            }
+        
+        /*  Filter Products
+            ========================================================================== */
+            .filter-products{
+                @include box-shadow(0 0 10px 5px rgba(0,0,0,.4));
+                @include border-radius(4px);
+                border-top: 6px solid $color-green;
+                background-color: #fff;
+                padding: 10px;
+                position: fixed;
+                right: -10%;
+                bottom: -10%;
+                z-index: 10;
+                width: 0;
+                height: 0;
+                overflow: scroll;
+                @include transition(
+                    right .2s ease,
+                    bottom .2s ease,
+                    width .2s ease,
+                    height .2s ease
+                );
+
+                /* Filter Open */
+                .filter-open &{
+                    @include transition(
+                        right .2s ease,
+                        bottom .2s ease,
+                        width .2s ease,
+                        height .2s ease
+                    );
+                    width: 96%;
+                    height: 96%;
+                    right: 2%;
+                    bottom: 2%;
+                }
+
+                /* Before */
+                &:before{
+                    content: "\f037";
+                    font-family: 'FontAwesome';
+                    position: fixed;
+                    display: block;
+                    font-size: 30px;
+                    line-height: 60px;
+                    width: 60px;
+                    height: 60px;
+                    right: 15px;
+                    bottom: 15px;
+                    background-color: $color-green;
+                    color: #fff;
+                    text-align: center;
+                    cursor: pointer;
+                    z-index: 11;
+                    @include border-radius(50%);
+                    @include transform(rotate(180deg));
+                    @include box-shadow(0 0 5px 2px rgba(0,0,0,0.2));
+
+                    /* Filter Open */
+                    .filter-open &{
+                        content: "\f00d";
+                    }
+                }
+            }
+    	
+    	/*  Featured Products
+    	    ========================================================================== */
+    	    .featured-products{
+				margin: 20px 0 35px 0;
+    	    }
+
+    	/*  Boxes Products
+    	    ========================================================================== */
+    	    .boxes-products{
+				
+				/* Box Product */
+    	    	.box-product{
+
+					+ .box-product{
+						margin-top: 20px;
+					}
+    	    	}
+
+    	    }
+    	
+    	/*  Featured About Us
+    	    ========================================================================== */
+    	    .featured-about{
+    	    	margin: 0 -10px;
+    	    	padding: 20px 15px;
+    	    	background-image: url(../img/bg-about-us-mobile.png);
+    	    	background-repeat: no-repeat;
+    	    	background-position: center bottom;
+    	    }
     }
 
     /*
@@ -24,6 +265,186 @@
 
     @media (min-width: $breakpoint) {
 
+    	/*  Featured Collection
+            ========================================================================== */
+            .featured-collection{
+                background: url(../img/bg-collection.png) no-repeat scroll top center / cover;
+                min-height: 768px;
+
+				/* hold */
+                .featured-collection-hold{
+					padding-top: 235px;
+                }
+
+                /* Title */
+                .title{
+                    font-size: 60px;
+                    line-height: 60px;
+                    margin-bottom: 15px;
+                }
+
+                /* Desc */
+                .desc{
+                	font-size: 19px;
+                	margin-bottom: 25px;
+                	padding-right: 20%;
+                }
+
+                /* Btn */
+                .btn{
+                	padding-right: 70px;
+                	padding-left: 70px;
+                }
+            }
+
+    	/*  Featured Products
+    	    ========================================================================== */
+    	    .featured-products{
+    	    	margin-bottom: 60px;
+				
+				/* Title */
+				.title{
+					margin-bottom: 45px;
+				}
+    	    }
+        
+        /*  Boxes Products
+            ========================================================================== */
+			.boxes-products{
+				font-size: 0;
+
+				/* Box Product */
+    	    	.box-product{
+    	    		@include transition(box-shadow .2s ease);
+					display: inline-block;
+					vertical-align: top;
+					width: 24.2%;
+					margin-bottom: 10px;
+					min-height: 410px;
+
+					+ .box-product{
+						margin-left: 1%;
+					}
+
+					/* Label */
+    	    		.label{
+    	    			text-align: left;
+    	    		}
+
+    	    		/* Image */
+    	    		.image{
+    	    			min-height: 250px;
+    	    		}
+
+    	    		/* Btn */
+    	    		.btn{
+    	    			@include transition(visible .2s ease, opacity .2s ease);
+    	    			visibility: hidden;
+    	    			opacity: 0;
+    	    		}
+
+    	    		/* Hover/Focus */
+    	    		&:hover,
+    	    		&:focus{
+    	    			@include box-shadow(0 25px 10px 5px rgba(0,0,0,0.1));
+    	    			@include transition(box-shadow .2s ease);
+
+    	    			/* Btn */
+	    	    		.btn{
+	    	    			@include transition(visible .2s ease, opacity .2s ease);
+	    	    			visibility: visible;
+	    	    			opacity: 1;
+	    	    		}
+    	    		}
+    	    	}
+    	    }
+    	
+    	/*  Featured About Us
+    	    ========================================================================== */
+    	    .featured-about{
+    	    	padding: 60px 0 20px 0;
+    	    	min-height: 550px;
+    	    	background-image: url(../img/bg-about-us.png);
+    	    	background-repeat: no-repeat;
+    	    	background-position: 12% bottom;
+
+    	    	/* Title */
+    	    	.title{
+					margin-bottom: 40px;
+    	    	}
+
+    	    	/* Desc */
+    	    	.desc{
+    	    		font-size: 20px;
+    	    		line-height: 30px;
+    	    		margin-right: 14%;
+    	    		margin-left: 14%;
+    	    	}
+    	    }
+    	
+    	/*  Filter Products
+            ========================================================================== */
+            .filter-products{                
+                margin-bottom: 115px;
+				
+				/* Row */
+                .row{
+                	border-bottom: 1px solid $color-gray-light;
+                	padding: 30px 0;
+                	font-size: 0;
+
+                	> *{
+                		display: inline-block;
+                		vertical-align: middle;
+                		width: 33.2%;
+
+                		+ * + *{
+                			text-align: right;
+                		}
+                	}
+                }
+
+                /* Filter item */
+                .filter-item{
+                	> *{
+                		/* display: inline-block;
+                		vertical-align: middle; */
+                	}
+
+                	/* Checkbox */
+                	.checkbox{
+                		> * {
+                			display: inline-block;
+                			vertical-align: middle;
+                		}
+                	}
+
+                	/* Title/Label */
+                	.filter-title,
+                	.filter-label{
+                		font-size: 16px;
+                		line-height: 16px;
+                		text-transform: uppercase;
+                	}
+
+                	/* Title */
+                	.filter-title{                	
+                		font-weight: 500;
+                		color: #000;
+                		margin-right: 20px;
+                	}
+
+                	/* Label */
+                	.filter-label{
+                		color: $color-gray;
+                		margin-right: 35px;
+
+                		&:before{
+                			margin: -7px 10px 0 0; 
+                		}
+                	}
+                }
+            }
     }
 
     /*

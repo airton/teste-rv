@@ -11,8 +11,9 @@
         body {
             -webkit-text-size-adjust: none;
             -ms-text-size-adjust:none;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: 'Rubik', sans-serif;
             font-weight: 400;
+            background-color: $color-gray-lightest;
         }
 
         /*  Titles
@@ -25,7 +26,7 @@
             h6 {
                 font-family: inherit;
                 margin: 0 0 30px 0;
-                font-weight: 700;
+                font-weight: 500;
                 color: $color-gray-dark;
 
                 &.sub{
@@ -75,7 +76,7 @@
         /*  Links
             ========================================================================== */
             a {
-                color: $color-primary;
+                color: $color-gray-dark;
                 text-decoration: none;
             }
 

@@ -8,188 +8,77 @@
 
     @media only screen {
 
-        /*  Default inputs, selects and textareas
-            ========================================================================== */
-            input[type="text"],
-            input[type="email"],
-            input[type="password"],
-            input[type="search"],
-            input[type="tel"],
-            input[type="url"],
-            input[type="date"],
-            input[type="datetime"],
-            input[type="datetime-local"],
-            input[type="month"],
-            input[type="week"],
-            .input,
-            select,
-            .select,
-            textarea,
-            .textarea {
-                width: 100%;
-                padding: 12px 10px;
-                border-width: 2px;
-                border-style: solid;
-                border-color: transparent;
-                background-color: #fff;
-                color: $color-input;
-                font-size: 14px;
-                margin-bottom: 15px;
-                @include transition(all .25s ease);
-                @include border-radius(4px);
-            }
-
-            input:focus,
-            .input:focus,
-            select:focus,
-            .select:focus,
-            textarea:focus,
-            .textarea:focus {
-                background-color: $color-gray-lightest;
-                outline-width: 0;
-            }
-
-        /*  Select
-            ========================================================================== */
-            .select{
-                /* -webkit-appearance: none;
-                   -moz-appearance: none;
-                        appearance: none; */
-
-                color: $color-placeholder;
-                /* font-style: italic; */
-                opacity: 1;
-                font-size: $placeholder-font-size;
-
-                &[value=""]{
-                    color: #BFBFBF;
-                    /* font-style: italic; */
-                }
-            }
-
-        /*  Search
-            ========================================================================== */
-            .input[type="search"] {
-                box-sizing: border-box;
-            }
-
-        /*  Textarea
-            ========================================================================== */
-            .textarea { resize: vertical; }
-
         /*  Input radio and checkbox
             ========================================================================== */
-            .radio,
-            .checkbox {
-                margin-bottom: 6px;
-                display: block;
-                color: $color-input;
-
-                .form-label,
-                input[type="radio"],
-                input[type="checkbox"]{
-                    display: inline-block;
-                    vertical-align: middle;
-                    margin: 0 2px 0 0;
+            [type="checkbox"]:not(:checked),
+            [type="checkbox"]:checked {
+                position: absolute;
+                left: -9999px;
+            }
+            [type="checkbox"]:not(:checked),
+            [type="checkbox"]:checked {
+                
+                + label{
+                    position: relative;
+                    padding-left: 40px;
+                    cursor: pointer;
                 }
-            }
 
-            .radio input[type="radio"],
-            .checkbox input[type="checkbox"] {
-                width: auto;
-            }
-
-            input[type="radio"],
-            input[type="checkbox"] {
-                line-height: normal;
-                margin: 4px 0 0;
-            }
-
-        /*  Inputs actions
-            ========================================================================== */
-            .form-item-wrap{
-                display: block;
-                position: relative;
-
-                .fa{
+                + label:before {
+                    content: '';
                     position: absolute;
-                    top: 15px;
-                    right: 20px;
+                    left:0; top: 2px;
+                    width: 20px; 
+                    height: 20px;
+                    border: 3px solid #cfcfcf;
+                    background: #f8f8f8;
+                    border-radius: 3px; 
+                }
+
+                + label:after {
+                    content: '✔';
+                    position: absolute;
+                    top: 3px; 
+                    left: 4px;
+                    font-size: 22px;
+                    line-height: 0.5;
                     color: $color-gray;
+                    transition: all .2s;
                 }
             }
 
-            .input,
-            select,
-            .select,
-            textarea,
-            .textarea{
-
-                /* Success */
-                &.success{
-                    border-color: $color-success;
-                    color: $color-success;
-
-                    + .fa{
-                        color: $color-success;
-                    }
-                }
-
-                /* Error */
-                &.danger{
-                    border-color: $color-danger;
-                    color: $color-danger;
-
-                    + .fa{
-                        color: $color-danger;
-                    }
-                }
-
-                /* Success */
-                &.warning{
-                    border-color: $color-warning;
-                    color: $color-warning;
-
-                    + .fa{
-                        color: $color-warning;
-                    }
-                }
+            [type="checkbox"]:not(:checked) + label:after {
+                opacity: 0;
+                transform: scale(0);
             }
 
-        /*  Placeholder
-            ========================================================================== */
-            input::-webkit-input-placeholder,
-            textarea::-webkit-input-placeholder {
-                color: $color-placeholder;
-                /* font-style: italic; */
+            [type="checkbox"]:checked + label:after {
                 opacity: 1;
-                font-size: $placeholder-font-size;
+                transform: scale(1);
             }
 
-            input:-moz-placeholder,
-            textarea:-moz-placeholder {
-                color: $color-placeholder;
-                /* font-style: italic; */
-                opacity: 1;
-                font-size: $placeholder-font-size;
+            [type="checkbox"]:disabled:not(:checked) + label:before,
+            [type="checkbox"]:disabled:checked + label:before {
+                box-shadow: none;
+                border-color: #bbb;
+                background-color: #ddd;
+            }
+            [type="checkbox"]:disabled:checked + label:after {
+                color: #999;
+            }
+            [type="checkbox"]:disabled + label {
+                color: #aaa;
+            }
+            
+
+            [type="checkbox"]:checked:focus + label:before,
+            [type="checkbox"]:not(:checked):focus + label:before {
+                border: 3px solid $color-gray;
             }
 
-            input::-moz-placeholder,
-            textarea::-moz-placeholder {
-                color: $color-placeholder;
-                /* font-style: italic; */
-                opacity: 1;
-                font-size: $placeholder-font-size;
+            label:hover:before {
+                border: 3px solid $color-gray!important;
             }
-
-            input:-ms-input-placeholder,
-            textarea:-ms-input-placeholder {
-                color: $color-placeholder;
-                /* font-style: italic; */
-                opacity: 1;
-                font-size: $placeholder-font-size;
-            }
-
     }
 
     /*
@@ -198,35 +87,7 @@
 
     @media (max-width: $breakpoint) {
 
-        /*  Default inputs, selects and textareas
-            ========================================================================== */
-            input[type="text"],
-            input[type="email"],
-            input[type="password"],
-            input[type="search"],
-            input[type="tel"],
-            input[type="url"],
-            input[type="date"],
-            input[type="datetime"],
-            input[type="datetime-local"],
-            input[type="month"],
-            input[type="week"],
-            .input,
-            select,
-            .select,
-            textarea,
-            .textarea {
-                border-bottom-color: $color-border-input;
-            }
 
-            input:focus,
-            .input:focus,
-            select:focus,
-            .select:focus,
-            textarea:focus,
-            .textarea:focus {
-                border-bottom-color: darken($color-border-input, 25%);
-            }
     }
 
     /*
@@ -235,34 +96,6 @@
 
     @media (min-width: $breakpoint) {
 
-        /*  Default inputs, selects and textareas
-            ========================================================================== */
-            input[type="text"],
-            input[type="email"],
-            input[type="password"],
-            input[type="search"],
-            input[type="tel"],
-            input[type="url"],
-            input[type="date"],
-            input[type="datetime"],
-            input[type="datetime-local"],
-            input[type="month"],
-            input[type="week"],
-            .input,
-            select,
-            .select,
-            textarea,
-            .textarea {
-                border-color: $color-border-input;
-            }
-
-            input:focus,
-            select:focus,
-            .select:focus,
-            textarea:focus,
-            .textarea:focus {
-                border-color: darken($color-border-input, 25%);
-            }
     }
 
     /*
