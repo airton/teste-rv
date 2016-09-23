@@ -20,7 +20,7 @@ bower install
 ```
 gulp sync
 ```
-> Alterar __Gulpfile.js__ na linha 159 para a url do seu projeto local `proxy: "local.teste-rv"`
+> Alterar __Gulpfile.js__ na linha 159 para a url do seu projeto local `proxy: "localhost/teste-rv"`
 
 ### Acessar url
 
