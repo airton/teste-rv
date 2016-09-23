@@ -123,14 +123,28 @@ var gulp 		= require('gulp'),
 		// Concat
 		gulp.task('concat', function() {
 
-			// scripts.min.js
-			gulp.src([
+            // scripts.min.js
+            gulp.src([
                     dirs._components+'/angular/angular.min.js', // Angularjs
                     dirs._components+'/Swiper/dist/js/swiper.js', // Swiper
                     dirs._assets+'/js/appRV.js',
-    				dirs._assets+'/js/scripts.js'
+                    dirs._assets+'/js/scripts.js'
+                ])
+                .pipe(plugins.concat('scripts.js'))
+                .pipe(gulp.dest(dirs._build+"/js"))
+                .pipe(plugins.rename({suffix: ".min"}))
+                .pipe(plugins.uglify())
+                .pipe(gulp.dest(dirs._build+"/js"))
+                .pipe(plugins.livereload())
+                .pipe(reload({stream:true}));
+
+			// mobile.min.js
+			gulp.src([
+                    dirs._components+'/angular/angular.min.js', // Angularjs
+                    dirs._assets+'/js/appRV.js',
+                    dirs._assets+'/js/mobile.js',
 				])
-    		    .pipe(plugins.concat('scripts.js'))
+    		    .pipe(plugins.concat('mobile.js'))
     		    .pipe(gulp.dest(dirs._build+"/js"))
     		    .pipe(plugins.rename({suffix: ".min"}))
     		    .pipe(plugins.uglify())

@@ -35,19 +35,25 @@
 
         // No filter
         function noFilter(filterObj) {
-            slideshow();
-            return Object.
-            keys(filterObj).
-            every(function (key) { return !filterObj[key]; });
+
+            if (typeof Swiper == 'function') {
+                slideshow();
+            }
+
+            return Object.keys(filterObj).every(function (key) { return !filterObj[key]; });
         }
 
         // Slideshow start
         function slideshow(){
+
             var swiper = new Swiper('.swiper-container', {
                 pagination: '.swiper-pagination',
                 slidesPerView: 4,
                 paginationClickable: true,
-                spaceBetween: 10
+                spaceBetween: 10,
+                onInit: function(swiper){
+                    console.log(swiper);
+                }
             });
         }
     }]);

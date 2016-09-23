@@ -263,7 +263,24 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="build/js/scripts.min.js"></script>
+    <script>
+        (function(){
+            var script,
+                scripts = document.getElementsByTagName('footer')[0];
+
+            function load(url) {
+              script = document.createElement('script');
+              script.async = true;
+              script.src = url;
+              scripts.parentNode.insertBefore(script, scripts);
+            }
+            if (document.body.clientWidth >= 800) {
+                load('build/js/scripts.min.js');
+            }else{
+                load('build/js/mobile.min.js');
+            }
+        })();
+    </script>
 
 </body>
 </html>
