@@ -2,17 +2,23 @@
 
 ## Rodar o projeto local
 
-```git
+```
 git clone https://github.com/airton/teste-rv.git
 ```
 ### Rodar comandos
 
-```git
+```
 npm install
 ```
 
-```git
+```
 bower install
 ```
 
+### Rodar no Browser
+
+```
+gulp sync
+```
+> Alterar __Gulpfile.js__ na linha 159 para a url do seu projeto local `proxy: "local.teste-rv"`
 
