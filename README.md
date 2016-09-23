@@ -23,6 +23,6 @@ gulp sync
 > Alterar __Gulpfile.js__ na linha 159 para a url do seu projeto local `proxy: "local.teste-rv"`
 
 ### Acessar url
-(http://localhost:3000/)[http://localhost:3000/]
+
 [http://localhost:3000/](http://localhost:3000/)
-`[http://localhost:3000/](http://localhost:3000/)`
+
