@@ -1,5 +1,5 @@
 # teste-rv
-[airton.github.io/teste-rv](airton.github.io/teste-rv)
+[http://airton.github.io/teste-rv](http://airton.github.io/teste-rv)
 
 ## Rodar o projeto local
 
