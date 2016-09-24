@@ -30,6 +30,30 @@
                     }
                 }
 
+            /*  Navbar cart
+                ========================================================================== */
+                .navbar-cart{
+                    position: relative;
+
+                    /* Icon */
+                    .fa{
+                        position: absolute;
+                        font-size: 14px;
+                        color: #c0392b;
+                        visibility: hidden;
+                        opacity: 0;
+                    }
+
+                    /* Added item cart */
+                    &.added{
+
+                        .fa{
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    }
+                }
+
         /*  Footer
             ========================================================================== */
             .footer{

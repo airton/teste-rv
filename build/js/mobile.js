@@ -333,10 +333,10 @@ PATTERNS:[{gSize:3,lgSize:3,maxFrac:3,minFrac:0,minInt:1,negPre:"-",negSuf:"",po
         self.products = getProducts.getProducts();
 
         // Cart
-        self.cart = getProducts.getCart();
+        self.cartItens = getProducts.getCart();
 
         // Add item Cart
-        //self.addItem = getProducts.addItem();
+        //self.add = getProducts.addItem();
 
         // Filter Type
         self.filterType = {};
@@ -369,10 +369,7 @@ PATTERNS:[{gSize:3,lgSize:3,maxFrac:3,minFrac:0,minInt:1,negPre:"-",negSuf:"",po
                 pagination: '.swiper-pagination',
                 slidesPerView: 4,
                 paginationClickable: true,
-                spaceBetween: 10,
-                onInit: function(swiper){
-                    console.log(swiper);
-                }
+                spaceBetween: 10
             });
         }
     }]);
@@ -481,44 +478,28 @@ PATTERNS:[{gSize:3,lgSize:3,maxFrac:3,minFrac:0,minInt:1,negPre:"-",negSuf:"",po
         var _itensCart = [
             {
                 id: 1,
-                name: "Nexus 6",
-                price: 1450.00,
+                name: "Modern Black Armchair",
+                price: 350.00,
                 photo: "build/img/modern-black.jpg",
+                category: "new",
                 type: "armchair",
                 material: "wood"
             }
         ];
 
-
+        // Get Products
         var _getProdutcs = function(){
             return _itensProducts;
         };
 
+        // Get Cart
         var _getCart = function(){
             return _itensCart;
         };
 
-        var lastId = 4;
-
-        var _addItem = function(newItem){
-            console.log(newItem);
-            newItem = angular.extend(newItem, {
-                id: lastId + 1,
-                photo: placeholderImg
-            });
-
-            _itensCart.push(newItem);
-            lastId += 1;
-        };
-
-        function addItem(newItem) {
-
-        }
-
         return{
             getProducts: _getProdutcs,
-            getCart: _getCart,
-            addItem: _addItem,
+            getCart: _getCart
         };
     }]);
 })();

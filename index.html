@@ -68,15 +68,29 @@
 	            </div>
 
 	            <div class="navbar-navigation">
-	            	<!-- Navbar menu -->
-	            <ul class="navbar-menu" role="menubar">
-	                <li class="menu-item"><a href="#">Home</a></li>
-	                <li class="menu-item"><a href="#">Products</a></li>
-	                <li class="menu-item current"><a href="#">Contact</a></li>
-	            </ul>
 
-	            <!-- Navbar cart -->
-	            <a class="navbar-cart" href="#"><i class="ico-cart-purple"></i></a>
+	            	<!-- Navbar menu -->
+    	            <ul class="navbar-menu" role="menubar">
+    	                <li class="menu-item"><a href="#">Home</a></li>
+    	                <li class="menu-item"><a href="#">Products</a></li>
+    	                <li class="menu-item current"><a href="#">Contact</a></li>
+    	            </ul>
+
+    	            <!-- Navbar cart -->
+                    <div class="dropdown">
+                        <a class="navbar-cart" href="#"><i class="ico-cart-purple" aria-hidden="true"></i><i class="fa fa-bell" aria-hidden="true"></i></a>
+                            <div class="dropdown-menu dropdown-right">
+
+                            <span class="dropdown-item label">Meu Carrinho <i class="fa fa-shield"></i></span>
+
+                            <span class="dropdown-item" href="#" ng-repeat="cart in ctrl.cartItens">
+                                <span class="name">{{cart.name}}</span>
+                                <span class="price">{{cart.price | currency}}</span>
+                            </span>
+
+                            <a class="dropdown-item split" href="#">Ir para o carrinho <i class="fa fa-sign-out"></i></a>
+                        </div>
+                    </div>
 	            </div>
 	        </div>
 	    </nav>
@@ -188,7 +202,7 @@
                             <span class="price">{{product.price | currency}}</span>
 
                             <!-- Btn -->
-                            <a href="#" class="btn btn-green"><i class="ico-cart-white"></i>By Now</a>
+                            <a href="#" class="btn btn-green" ng-submit="ctrl.add()" ng-model="product.id"><i class="ico-cart-white"></i>{{product.id}}By Now</a>
                         </div>
                     </div>
 
